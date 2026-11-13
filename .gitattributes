@@ -1,0 +1,4 @@
+*.asm linguist-detectable=true
+*.s linguist-detectable=true
+*.bat linguist-detectable=true
+*.ld linguist-detectable=true
