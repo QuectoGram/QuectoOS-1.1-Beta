@@ -12,11 +12,11 @@ g++ -m32 -nostdlib -Wl,-nmagic -T linker.ld entry.o kernel.o -o kernel.exe
 if errorlevel 1 goto error
 objcopy -O binary kernel.exe kernel.bin
 if errorlevel 1 goto error
-echo 3 Generating QuectoOS 1.0 Beta img (11 KB)
-copy /b boot.bin + kernel.bin "QuectoOS-1.0-Beta.img" > nul
-powershell -Command "$f = [System.IO.File]::OpenWrite('QuectoOS-1.0-Beta.img'); $f.SetLength(11264); $f.Close()"
+echo 3 Generating QuectoOS 1.1 Beta img (11 KB)
+copy /b boot.bin + kernel.bin "QuectoOS-1.1-Beta.os" > nul
+powershell -Command "$f = [System.IO.File]::OpenWrite('QuectoOS-1.1-Beta.os'); $f.SetLength(11264); $f.Close()"
 echo.
-echo SUCCESS Generated QuectoOS 1.0 Beta
+echo SUCCESS Generated QuectoOS 1.1 Beta
 pause
 exit /b 0
 :error
