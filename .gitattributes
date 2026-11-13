@@ -1,8 +1,12 @@
 *.asm linguist-language=Assembly
-*.s linguist-language=Assembly
-*.bat linguist-language=Batchfile
+*.asm linguist-detectable=true
+*.asm linguist-vendored=false
+*.asm linguist-generated=false
 *.ld linguist-language=Linker-Script
-*.asm linguist-detectable=true linguist-vendored=false linguist-generated=false
-*.s linguist-detectable=true linguist-vendored=false linguist-generated=false
-*.bat linguist-detectable=true linguist-vendored=false linguist-generated=false
-*.ld linguist-detectable=true linguist-vendored=false linguist-generated=false
+*.ld linguist-detectable=true
+*.ld linguist-vendored=false
+*.ld linguist-generated=false
+*.bat linguist-language=Batchfile
+*.bat linguist-detectable=true
+*.bat linguist-vendored=false
+*.bat linguist-generated=false
