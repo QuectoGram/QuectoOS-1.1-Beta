@@ -1,4 +1,8 @@
-*.asm linguist-detectable=true
-*.s linguist-detectable=true
-*.bat linguist-detectable=true
-*.ld linguist-detectable=true
+*.asm linguist-language=Assembly
+*.s linguist-language=Assembly
+*.bat linguist-language=Batchfile
+*.ld linguist-language=Linker-Script
+*.asm linguist-detectable=true linguist-vendored=false linguist-generated=false
+*.s linguist-detectable=true linguist-vendored=false linguist-generated=false
+*.bat linguist-detectable=true linguist-vendored=false linguist-generated=false
+*.ld linguist-detectable=true linguist-vendored=false linguist-generated=false
