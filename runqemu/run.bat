@@ -1,3 +1,3 @@
 @echo off
-qemu-system-i386 -machine pc -drive file=QuectoOS-1.1-Beta.os,format=raw,if=floppy
+qemu-system-x86_64 -drive format=raw,file=QuectoOS-1.1-Beta.os
 pause
