@@ -17,7 +17,7 @@ start:
     jc disk_error
 
     mov ah, 0x02
-    mov al, 15                  
+    mov al, 21                  
     mov ch, 0
     mov dh, 0
     mov cl, 2
