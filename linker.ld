@@ -1,13 +1,34 @@
-ENTRY(_start)
+ENTRY(kernel_main)
 
 SECTIONS
 {
-    . = 0x10000;
+    . = 0x10200;
 
     .text : {
-        *(.text)
-        *(.text.*)
+        *(.text.kernel_main)
+        *(.text*)
     }
-    .data : { *(.data) }
-    .bss  : { *(.bss) }
+
+    .rodata : {
+        *(.rodata*)
+        *(.rdata*)
+    }
+
+    .data : {
+        *(.data*)
+    }
+
+    .bss : {
+        *(.bss*)
+        *(COMMON)
+    }
+
+    /DISCARD/ : {
+        *(.pdata)
+        *(.xdata)
+        *(.eh_frame)
+        *(.comment)
+        *(.idata*)
+        *(.reloc*)
+    }
 }
