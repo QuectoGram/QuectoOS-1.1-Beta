@@ -1,4 +1,4 @@
-Welcome to QuectoOS 1.0 a 64 bit Operating System
+Welcome to QuectoOS 1.1 a 64 bit Operating System
 ________________________________
 # Made With
 c++ Assembly, python
