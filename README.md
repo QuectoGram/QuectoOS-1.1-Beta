@@ -4,7 +4,7 @@ ________________________________
 c++ Assembly, python
 _______________________________
 # Requirement
-Qemu
+Qemu or virtualbox
 ______________________________
 # it does what
 it prints Welcome to QuectoOS 
