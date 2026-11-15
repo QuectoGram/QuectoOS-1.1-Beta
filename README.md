@@ -11,6 +11,7 @@ it prints Welcome to QuectoOS
 _____________________________
 # Updates
 Added ____________ line 
+Added Cursor
 ___________________________
 # Downloads
 Download a Github Release
