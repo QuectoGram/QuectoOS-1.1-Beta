@@ -14,7 +14,7 @@ objcopy -O binary -j .text -j .rodata -j .data kernel.exe kernel.bin
 if errorlevel 1 goto error
 echo 3 Generating QuectoOS 1.1 Beta img (11 KB)
 copy /b boot.bin + entry.bin + kernel.bin "QuectoOS-1.1-Beta.img" > nul
-powershell -Command "$f = [System.IO.File]::OpenWrite('QuectoOS-1.1-Beta.img'); if ($f.Length -lt 1400675) { $f.SetLength(1400675) }; $f.Close()"
+powershell -Command "$f = [System.IO.File]::OpenWrite('QuectoOS-1.1-Beta.img'); if ($f.Length -lt 1400475) { $f.SetLength(1400475) }; $f.Close()"
 echo.
 echo SUCCESS Generated QuectoOS 1.1 Beta
 pause
