@@ -1,12 +1,11 @@
 #include <stdint.h>
 #include <stddef.h>
 static inline void outb(uint16_t port, uint8_t val) {
-    __asm__ volatile ("outb %0, %1" : : "a"(val), "Nd"(port));
+    __asm__ volatile ( "outb %0, %1" : : "a"(val), "Nd"(port) );
 }
-
 static inline uint8_t inb(uint16_t port) {
     uint8_t ret;
-    __asm__ volatile ("inb %1, %0" : "=a"(ret) : "Nd"(port));
+    __asm__ volatile ( "inb %1, %0" : "=a"(ret) : "Nd"(port) );
     return ret;
 }
 extern "C" __attribute__((section(".text.kernel_main"))) void kernel_main(void) {
@@ -41,7 +40,21 @@ extern "C" __attribute__((section(".text.kernel_main"))) void kernel_main(void) 
         video_memory[row1_offset + (j * 2)]     = static_cast<uint8_t>(str1[j]);
         video_memory[row1_offset + (j * 2) + 1] = 0x1F;
     }
+    outb(0x3D4, 0x0A); outb(0x3D5, 0x20);
+    outb(0x64, 0xA8); while (inb(0x64) & 2); outb(0x64, 0xD4);
+    while (inb(0x64) & 2); outb(0x60, 0xF4); while (!(inb(0x64) & 1)); (void)inb(0x60);
+    int x = 320, y = 200, s = 0, p = 2000;
+    uint8_t b[3], c = ' ', a = 0x1F;
+    video_memory[p] = '|'; video_memory[p + 1] = 0x1E;
     while (1) {
-        __asm__ volatile ("hlt");
+        if ((inb(0x64) & 0x21) == 0x21 && (b[s++] = inb(0x60), s == 3)) {
+            s = 0; video_memory[p] = c; video_memory[p + 1] = a;
+            x += static_cast<int8_t>(b[1]); y -= static_cast<int8_t>(b[2]);
+            x = x < 0 ? 0 : (x > 639 ? 639 : x);
+            y = y < 0 ? 0 : (y > 399 ? 399 : y);
+            p = ((y / 16) * 80 + (x / 8)) * 2;
+            c = video_memory[p]; a = video_memory[p + 1];
+            video_memory[p] = '|'; video_memory[p + 1] = 0x1E;
+        }
     }
 }
